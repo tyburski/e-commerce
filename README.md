@@ -1,7 +1,7 @@
 # Apliakcja konsolowa e-commerce
 ## Baza danych MSSQL (EF Core)
 ```
-Bazę danych wraz z podstawowymi danymi można zainicjować poprzez migrację w EF Core
+Bazę danych można zainicjować poprzez migrację w EF Core
 lub poprzez query używając kodu zamieszczonego w SQLScript/script.sql
 ```
 ## Testowy użytkownik:
