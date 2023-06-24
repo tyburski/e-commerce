@@ -60,9 +60,9 @@ namespace e_commerce.Services
                         new ShopService(_context, this, user).Menu();
                         return user;
                     }
-                    else { i++; return null; };
+                    else { i++; };
                 }
-                else { i++; return null; };
+                else { i++; };
             }
             Console.WriteLine("***The allowed number of login attempts has been exceeded");
             return null;

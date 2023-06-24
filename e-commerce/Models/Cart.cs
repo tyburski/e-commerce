@@ -16,9 +16,10 @@ namespace e_commerce.Models
         public double Price { get; private set; }
         public double newPrice { get; private set; }
 
-        public async void Build(List<Discount> discounts, int maxPriority)
+        public void Build(List<Discount> discounts, int maxPriority)
         {
             Price = default;
+            newPrice = default;
             foreach (var item in Items)
             {              
                 Price += item.parameters.Price;
@@ -26,7 +27,7 @@ namespace e_commerce.Models
             }
             for (int i = maxPriority; i > 0 ; i--)
             {
-                var result = await Task.Run(() => discounts.FirstOrDefault(x => x.Priority.Equals(i)));
+                var result = discounts.FirstOrDefault(x => x.Priority.Equals(i));
 
                 var price = result.Logic(this);
                 if (!price.Equals(Price))
