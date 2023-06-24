@@ -1,6 +1,5 @@
 ﻿// See https://aka.ms/new-console-template for more information
 using e_commerce;
-using e_commerce.Migrations;
 using e_commerce.Models;
 using e_commerce.Models.Discounts;
 using e_commerce.Models.Items;
