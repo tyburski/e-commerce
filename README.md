@@ -3,6 +3,7 @@
 ```
 Bazę danych można zainicjować poprzez migrację w EF Core
 lub poprzez query używając kodu zamieszczonego w SQLScript/script.sql
+Plik konfiguracyjny: e-commerce/Configuration.cs
 ```
 ## Testowy użytkownik:
 ```
