@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace e_commerce
 {
-    internal class DataSeeder
+    public class DataSeeder
     {
         private readonly AppDbContext _context;
 

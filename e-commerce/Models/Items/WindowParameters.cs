@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace e_commerce.Models.Items
 {
-    internal class WindowParameters : Parameters
+    public class WindowParameters : Parameters
     {
         public int Height { get; set; }
         public int Width { get; set; }

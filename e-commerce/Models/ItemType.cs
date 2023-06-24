@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace e_commerce.Models
 {
-    internal enum ItemType
+    public enum ItemType
     {
         Window,
         DoorGasket,

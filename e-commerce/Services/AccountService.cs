@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace e_commerce.Services
 {
-    internal class AccountService 
+    public class AccountService 
     {
         private readonly AppDbContext _context;
         public AccountService(AppDbContext context)

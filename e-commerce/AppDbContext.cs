@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace e_commerce
 {
-    internal class AppDbContext : DbContext
+    public class AppDbContext : DbContext
     {
         public DbSet<Item> Items { get; set; }
         public DbSet<Parameters> Parameters { get; set; }

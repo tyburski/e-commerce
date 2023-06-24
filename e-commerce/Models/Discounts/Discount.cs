@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace e_commerce.Models.Discounts
 {
-    internal class Discount
+    public class Discount
     {
         public int Id { get; set; }
         public string Notice { get; set; }

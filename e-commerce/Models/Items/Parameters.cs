@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace e_commerce.Models.Items
 {
-    internal class Parameters
+    public class Parameters
     {
         public int Id { get; set; }
         public ItemType Type { get; set; }

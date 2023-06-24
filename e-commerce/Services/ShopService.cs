@@ -15,7 +15,7 @@ using System.Threading.Tasks;
 
 namespace e_commerce.Services
 {
-    internal class ShopService
+    public class ShopService
     {
         private readonly AppDbContext _context;
         private readonly AccountService _accountService;
@@ -109,8 +109,7 @@ namespace e_commerce.Services
                     {
                         Console.WriteLine("\n***We do not support this option");
                     }
-                }
-                
+                }             
             }
         }
         public void SelectedItem(Item item)
@@ -178,7 +177,7 @@ namespace e_commerce.Services
             int i = 1;
             if (cart.Items.Count.Equals(0))
             {
-                Console.WriteLine("***There is nothing here");
+                Console.WriteLine("***There is nothing here\n");
             }
             else
             {
@@ -293,7 +292,7 @@ namespace e_commerce.Services
             }
             else Console.WriteLine("\nYour order is empty\n");
 
-            Console.Write("Redirection in: ");
+            Console.Write("Redirecting in: ");
 
             for (int i = 5; i > 0 ; i--)
             {

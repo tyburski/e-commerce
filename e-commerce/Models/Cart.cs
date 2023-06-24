@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace e_commerce.Models
 {
-    internal class Cart
+    public class Cart
     {
         public int Id { get; set; }
 
@@ -16,22 +16,22 @@ namespace e_commerce.Models
         public double Price { get; private set; }
         public double newPrice { get; private set; }
 
-        public void Build(List<Discount> discounts, int maxPriority)
+        public async void Build(List<Discount> discounts, int maxPriority)
         {
             Price = default;
             foreach (var item in Items)
-            {
-                
+            {              
                 Price += item.parameters.Price;
                 newPrice = Price;               
             }
             for (int i = maxPriority; i > 0 ; i--)
             {
-                var result = discounts.FirstOrDefault(x => x.Priority.Equals(i)).Logic(this);
+                var result = await Task.Run(() => discounts.FirstOrDefault(x => x.Priority.Equals(i)));
 
-                if(!result.Equals(Price))
+                var price = result.Logic(this);
+                if (!price.Equals(Price))
                 {
-                    newPrice= result;
+                    newPrice = price;
                     break;
                 }
             }

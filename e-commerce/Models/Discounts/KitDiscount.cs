@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace e_commerce.Models.Discounts
 {
-    internal class KitDiscount : Discount
+    public class KitDiscount : Discount
     {
         public KitDiscount(int priority)
         {
@@ -34,6 +34,7 @@ namespace e_commerce.Models.Discounts
                         }
                     }
                 }
+                return cart.Price;
             }
             return cart.Price;
         }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace e_commerce.Models.Discounts
 {
-    internal class CurrentWeekHandleDiscount : Discount
+    public class CurrentWeekHandleDiscount : Discount
     {
         public CurrentWeekHandleDiscount(int priority)
         {
@@ -25,7 +25,7 @@ namespace e_commerce.Models.Discounts
         }
         public override double Logic(Cart cart)
         {
-            double discount = default;
+            double discount;
             if(DateTime.Now <= _thisWeekEnd)
             {
                 foreach(var item in cart.Items)
@@ -33,9 +33,9 @@ namespace e_commerce.Models.Discounts
                     if(item.parameters.Type.Equals(ItemType.Handle))
                     {
                         discount = item.parameters.Price * 0.20;
+                        return cart.Price - discount;
                     }
-                }
-                return cart.Price - discount;
+                }             
             }
             return cart.Price;
         }

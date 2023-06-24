@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace e_commerce.Models.Discounts
 {
-    internal class FreeHandlesDiscount : Discount
+    public class FreeHandlesDiscount : Discount
     {
         public FreeHandlesDiscount(int priority)
         {
@@ -28,9 +28,10 @@ namespace e_commerce.Models.Discounts
                     counter++;
                 }
             }
+            if (counter < 3) return cart.Price;
             int k = (counter / 3 - counter % 3);
 
-            if(handles.Count >= counter)
+            if(counter > 0 && handles.Count >= counter)
             {
                 double discount = 0;
                 for (int j = 0; j < k * 3; j++)

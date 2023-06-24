@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace e_commerce.Models.Items
 {
-    internal class HandleParameters : Parameters
+    public class HandleParameters : Parameters
     {
         public string Color { get; set; }
 

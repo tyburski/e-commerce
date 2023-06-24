@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace e_commerce.Models.Items
 {
-    internal class FoilParameters : Parameters
+    public class FoilParameters : Parameters
     {
         public int Permeability { get; set; }
 

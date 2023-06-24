@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace e_commerce
 {
-    internal class ParameterHandler : IDisposable
+    public class ParameterHandler : IDisposable
     {
         bool disposed;
 

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace e_commerce.Models.Items
 {
-    internal class DoorGasketParameters : Parameters
+    public class DoorGasketParameters : Parameters
     {
         public int Width { get; set; }
 

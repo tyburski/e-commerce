@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace e_commerce
 {
-    internal class Configuration
+    public class Configuration
     {
         private static string Server = "(localdb)\\MSSQLLocalDB";
         private static string Database = "E-CommerceDB";
