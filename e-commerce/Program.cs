@@ -8,15 +8,10 @@ using Microsoft.EntityFrameworkCore;
 
 var context = new AppDbContext();
 var seeder = new DataSeeder(context);
-
-seeder.Init();
 var accountService = new AccountService(context);
 
-var user = accountService.Login();
-if(user!=null)
-{
-    new ShopService(context, accountService, user).Menu();
-}
+seeder.Init();
+accountService.Login();
 
 
 

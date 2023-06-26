@@ -15,6 +15,21 @@ namespace e_commerce.Services
         {
             _context = context;
         }
+
+        public User UserValidation(string username, string password)
+        {           
+            var user = _context.Users.FirstOrDefault(x => x.Username.Equals(username));
+            if (user != null)
+            {
+                if (BCrypt.Net.BCrypt.Verify(password, user.Password))
+                {
+                    new ShopService(_context, this, user).Menu();
+                    return user;
+                }
+                else return null;
+            }
+            return null;
+        }
         public string HidePassword()
         {
             ConsoleKeyInfo key;
@@ -32,41 +47,35 @@ namespace e_commerce.Services
             return code;
 
         }
-        public User Login()
+        public void Login()
         {
             Console.Clear();
+           
             int i = 0;
 
             while(i < 5)
-            {
-                if(!i.Equals(0))
-                {
-                    
+            {              
+                if (!i.Equals(0))
+                {                  
                     Console.Clear();
                     Console.WriteLine("***Invalid Login Attempt\n");
                 }
-                
+
                 Console.Write("Username: ");
                 var username = Console.ReadLine();
                 Console.Write("Password: ");
                 var password = HidePassword();
                 Console.WriteLine("\n");
 
-                var user = _context.Users.FirstOrDefault(x => x.Username.Equals(username));
+                var user = this.UserValidation(username, password);
                 if (user != null)
                 {
-                    if (BCrypt.Net.BCrypt.Verify(password, user.Password))
-                    {
-                        new ShopService(_context, this, user).Menu();
-                        return user;
-                    }
-                    else { i++; };
+                    new ShopService(_context, this, user).Menu();
                 }
                 else { i++; };
             }
-            Console.WriteLine("***The allowed number of login attempts has been exceeded");
-            return null;
-            
+            Console.Clear();
+            Console.WriteLine("***The allowed number of login attempts has been exceeded");           
         }
     }
 }
